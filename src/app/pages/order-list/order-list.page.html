@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>order-list</ion-title>
+
+
+    <ion-button (click)="onClick()" slot="end" shape="round">
+      Enable
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-reorder-group  [disabled]="disable" (ionItemReorder)="reorder($event)">
+
+        <ion-item *ngFor="let item of users">
+          <ion-label> {{item.name}} </ion-label>
+          <ion-reorder slot="end"></ion-reorder>
+        </ion-item>
+      
+    </ion-reorder-group>
+  </ion-list>
+
+</ion-content>

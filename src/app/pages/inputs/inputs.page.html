@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>inputs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="">
+
+  <ion-list>
+
+    <ion-list-header>
+      <ion-label>Name: {{nombre || 'Aun no llega el nombre'}} </ion-label>
+    </ion-list-header>
+
+
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" placeholder="Awesome Input" [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <form #formulario="ngForm" (ngSubmit)="sendTemplate()">
+    
+    <ion-list>
+
+      <ion-header class="ion-padding">
+        <ion-label>Form Template: {{formulario.valid}} </ion-label>
+      </ion-header>
+
+      <ion-item>
+        <ion-label position="floating">Insert User</ion-label>
+      <ion-input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Awesome name" name="name" [(ngModel)]="user.name" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Insert Password</ion-label>
+      <ion-input type="password" placeholder="Awesome password" name="password" [(ngModel)]="user.password" required></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button type="submit" [disable]="formulario.invalid" expand="full" shape="round">
+      Send Form
+    </ion-button>
+
+  </form>
+
+</ion-content>

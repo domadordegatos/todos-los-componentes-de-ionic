@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private router:Router, private navCtrl: NavController) {}
+  valor = 'Neyder Neme';
 
+  pushSegunda(){
+    this.router.navigate(['/segundo',this.valor]);
+  }
+  pushSegundaNavCtrl(){
+    this.navCtrl.navigateForward(`/segundo/${this.valor}`);
+  }
 }
